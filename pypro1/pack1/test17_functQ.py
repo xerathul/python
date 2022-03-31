@@ -4,6 +4,7 @@ datas=[]
 
 import time
 def inputfunc():
+    print('사번', '이름', '기본금', '입사년도')
     count=0
     while True:
         inputList=input().split(',')
