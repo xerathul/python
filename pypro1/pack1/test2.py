@@ -1,7 +1,6 @@
 # 연산자 우선순위
 # 소괄호 > 산술연산자(*, /, // > +,-) > 관계연산자 (>,>= ==,!=,<,<=)> 논리연산자 ( not, and, or) > 치환(=)
-from dask.array.ufunc import divmod
-from sqlalchemy.sql.expression import false
+
 v1= 3 # 치환
 v1= v2=v3=2
 print(v1,v2,v3)

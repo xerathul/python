@@ -2,10 +2,6 @@
 
 
 class Machine:
-    
-    cupCount=0
-    change=0
-    errorMsg=False
     def __init__(self,coin):
         self.coin=coin
         

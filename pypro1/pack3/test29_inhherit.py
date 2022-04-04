@@ -8,7 +8,7 @@ class Animal:
     
     #...
 class Dog(Animal):
-    def __init__(self):
+    def __init__(self): #자식의 생성자가 있을경우 부모의 생성자를 호출하지 않음- 자식의 생성자가 없을 경우 부모의 생성자 수행
         print('Dog 생성자')
         
     def my(self):
@@ -17,3 +17,10 @@ class Dog(Animal):
 dog1= Dog()
 dog1.move()
 dog1.my()
+
+print()
+class Horse(Animal):
+    pass
+
+horse1=Horse()
+horse1.move()
