@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	span{
+		    font-family: 궁서;
+		    font-size: 30pt;
+		    color: pink;
+	}
+</style>
+<link rel="stylesheet" href="/static/css/test.css" />
+<script type="text/javascript" src="/static/js/test.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		//alert("jQuery ok");
+		$("#myImg").click(function(){
+			//abc();
+			alert("jQuery used!")
+		});
+	});
+</script>
+</head>
+<body>
+<h1>good 요청에 의한 <span>출력 결과</span></h1>
+<p>출력을 위한 파일은 각 app의 templates 폴더에 넣는다.</p>
+<br />
+<p>Django 가 지원하는 변수 매핑 태그: {{mymsg}}</p>
+
+<hr />
+<img src="/static/images/rabbit.png" alt="" id="myImg"/>
+<br />
+<a href="http://www.daum.net:80/index.html">다음 사이트의 html문서 요청</a>
+</body>
+</html>
