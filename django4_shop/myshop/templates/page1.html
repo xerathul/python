@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+   document.querySelector("#btnOk").onclick = function(){
+      frm.submit();
+   }
+}
+</script>
+</head>
+<body>
+<h1>잡채 냠냠</h1>
+<table>
+	<tr>
+		<td><a href="page1"><img src="/static/images/j.jpg" style="width: 30%" title="best"/></a></td>
+		<td>
+		<pre>
+			맛있는 잡채
+			공유
+			정가35,800원
+			판매가32,800원구매혜택
+			적립 적립금 : +320원 (상품 : 320원)
+		</pre>
+		</td>
+	</tr>
+	<tr>
+		<td colspan='2'>
+			<form action="cart" id="frm" name="frm" method="post">
+			{% csrf_token %}
+				<input type="hidden" name="name" value="잡채"/>
+				<input type="hidden" name="price" value="40000" />
+				<input type="button" id="btnOk" value="장바구니에 물건 담기" />
+				<input type="button" value="홈으로" onclick="history.back()"/>
+			</form>
+		</td>
+	</tr>
+</table>
+</body>
+</html>
