@@ -18,7 +18,7 @@ def cartFunc(request):
     productList=[]
     
     if 'shop' in request.session:
-        productList=request.session
+        productList=request.session['shop']
         productList.append(product)
         request.session['shop']= productList
     else:

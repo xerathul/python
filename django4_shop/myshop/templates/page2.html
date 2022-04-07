@@ -6,7 +6,7 @@
 <script>
 	window.onload= function(){
 		document.querySelector("#btnOk").onclick= function(){
-			frm.sumbit();
+			frm.submit();
 		}
 	}
 </script>
@@ -15,7 +15,7 @@
 <h1>잡채 냠냠</h1>
 <table>
 	<tr>
-		<td><a href="page2"><img src="/static/images/k.jpg" style="width: 30%" title="best"/></a></td>
+		<td><a href="page2"><img src="/static/images/t.jpg" style="width: 30%" title="best"/></a></td>
 		<td>
 		<pre>
 			맛있는 탄탄면
@@ -28,7 +28,7 @@
 	</tr>
 	<tr>
 		<td colspan='2'>
-			<form action="cart" name="frm" method="post">
+			<form action="cart" id="frm" method="post">
 			{% csrf_token %}
 				<input type="hidden" name="name" value="탄탄면"/>
 				<input type="hidden" name="price" value="35000" />

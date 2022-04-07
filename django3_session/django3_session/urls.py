@@ -19,7 +19,8 @@ from sessionApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.mainFunc),
-    path('setos',views.setOsFunc),
-    path('showos',views.showOsFunc)
+    
+    path('', views.mainFunc),
+    path('setos', views.setOsFunc),
+    path('showos', views.showOsFunc),
 ]

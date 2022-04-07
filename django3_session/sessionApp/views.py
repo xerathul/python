@@ -7,9 +7,11 @@ def mainFunc(request):
 
 def setOsFunc(request):
     #print('request GET: ',request.GET)  #get 방식 요청 시 <QueryDict: {}>로 들어옴 
+    
     if "favorite_os" in request.GET:
         print('request GET: ',request.GET['favorite_os'])
         # request.session['세션 키']
+        
         request.session['f_os'] = request.GET['favorite_os']    #f_os라는 key로 세션 생성
         return HttpResponseRedirect('/showos') #redirect 방식 (client 컴을 통해 요청 함)
         
@@ -18,6 +20,7 @@ def setOsFunc(request):
     
 def showOsFunc(request):
     dict_context={}
+    
     if "f_os" in request.session:
         print('유효시간: ',request.session.get_expiry_age())
         dict_context['select_os']=request.session['f_os']
