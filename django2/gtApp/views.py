@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
+from django.http.response import HttpResponseRedirect
 
 # Create your views here.
 
@@ -24,8 +25,8 @@ def insertedFunc(request):
 def insertFunc(request):
     if request.method=='GET':
         print('Get method requested')
-        return render(request, "insert.html")
-        
+        return render(request, "insert.html")  #forward 방식 
+    
     elif request.method=='POST':
         print('Post method requested')
         name= request.POST.get('name')

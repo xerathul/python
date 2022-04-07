@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Get 방식 입력 결과</h1>
+<p>메세지: {{msg}}</p>
+{% if gen == "man" %}
+	<p>남자</p>
+	<img src="../static/images/kim1.png" alt="" />
+{% elif gen == "woman" %}
+	<p>여자</p>
+	<img src="../static/images/rabbit.png" alt="" />
+{% endif %}
+</body>
+</html>
