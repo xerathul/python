@@ -6,10 +6,10 @@ config = {
     'user':'root',
     'password':'123',
     'database':'test',
-    'port':3306,
+    'port':3307,
     'charset':'utf8',
     'use_unicode':True
 }
 
-with open('mydb.dat','wb') as obj:
+with open('mydb1.dat','wb') as obj:
     pickle.dump(config, obj)
