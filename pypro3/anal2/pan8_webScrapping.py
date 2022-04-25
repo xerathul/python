@@ -34,7 +34,7 @@ for i in datas:
     ss = i.string
     print('href:%s, text: %s'%(href, ss))
 
-print()
+print('-------------')
 datas=soup2.findAll('a')
 #print(datas)
 for i in datas[:20]:

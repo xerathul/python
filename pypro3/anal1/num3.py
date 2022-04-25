@@ -42,7 +42,7 @@ print(np.sum(x, axis = 0)) # 칼럼에대한 합
 print(np.sum(x, axis = 1))
 print(np.argmax(x), np.argmin(x))
 
-print()
+print('***************')
 print(x)
 print(x.T)  #전치 ( 행과 열의 방향을 바꿔줌)
 print(x.transpose()) 

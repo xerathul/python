@@ -39,6 +39,7 @@ html_page2 ='''
         <p>웹문서 읽기</p>
         <p id="my" class="our">파이썬 라이브러리 사용</p>
         </body>
+        <a target="_blank" href="https://www.naver.com">naver</a>
         </html>
 ''' 
 
@@ -51,6 +52,8 @@ print()
 print(soup2.find(id='my').string)
 print(soup2.find(id='title').string)
 print(soup2.find(class_='our').string)
+print('**********************')
+print(soup2.findAll(['a'],{ 'target'  :  '_blank' }))
 print(soup2.find(attrs={'class':'our'}).string)
 print(soup2.find(attrs={'id':'title'}).string)
 print('\nfindall() 사용----------')
