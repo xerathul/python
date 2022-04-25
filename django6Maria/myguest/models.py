@@ -7,3 +7,7 @@ class Guest(models.Model):
     title = models.CharField(max_length = 50)
     content = models.TextField()
     regdate = models.DateTimeField()
+    
+    class Meta:
+        #ordering=('title',)
+        ordering=('-id',)
