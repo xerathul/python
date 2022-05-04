@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Hello World</h1>
+
+
+<form action="workYear" id="submit" method="post">{% csrf_token %}
+	<label for="year">근무년수</label>
+	<input type="number" name="year" />
+	<button type="submit">send</button>
+</form>
+</body>
+</html>
