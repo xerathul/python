@@ -21,5 +21,6 @@ from linreg import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.main),
-    path('workYear', views.insert)
+    path('workYear', views.insert),
+    path('predict',views.predict)
 ]

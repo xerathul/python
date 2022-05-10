@@ -4,14 +4,49 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+function pred(){
+	  let send_data = {}
+	  let year = document.getElementById("year").value
+	  send_data['year'] = year
+	  //alert(send_data)
+	  
+	  $(".predtPay").empty();
+	  $(".payList").empty();
+	  
+	  $.ajax({
+		     url:"predict",
+		     type:"post",
+		     data:send_data,
+		     dataType:"json",
+		     success:function(data){
+		     	
+			    $(".predtPay").append(`근무년수 <b>${year}년</b>에 대한 예상 연봉액 : ${data.payResult}`);
+		     	$(".payList").append(data.jg);
+		  		
+		     },
+		     error: function(){
+		    	 alert('에러가 발생했습니다.')
+		     }
+	  });  
+}
+</script>
 <body>
-<h1>Hello World</h1>
+<h1>근무년수에 대한 예상 연봉 출력</h1>
 
 
-<form action="workYear" id="submit" method="post">{% csrf_token %}
-	<label for="year">근무년수</label>
-	<input type="number" name="year" />
-	<button type="submit">send</button>
-</form>
+	<p>근무년수 입력</p>
+	<input type="number" name="year" id ="year"/> 
+	<button onclick="pred()">send</button>
+
+<br />
+<div class="predtPay">
+
+</div>
+
+<div class="payList">
+
+</div>
 </body>
 </html>

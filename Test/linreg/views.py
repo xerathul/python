@@ -1,12 +1,13 @@
 from django.shortcuts import render
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing._data import PolynomialFeatures
 from sklearn.linear_model._base import LinearRegression
 from sklearn.metrics._regression import r2_score
 import matplotlib.pyplot as plt
 from linreg.models import Jikwon
-import datetime
+from django.http.response import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from sklearn.model_selection._split import train_test_split
 import json
 plt.rc('font', family ='malgun gothic')
 
@@ -17,6 +18,7 @@ plt.rc('font', family ='malgun gothic')
 
 def main(request):
     return render(request, 'main.html')
+
 def linreg(year):
     jikwons = Jikwon.objects.all().values()
     #print(jikwons)
@@ -25,10 +27,16 @@ def linreg(year):
     # print(df.head(3))
     df = df.loc[:,['입사','연봉','직급']]
     print(df.head(3))
+    
+    #근무년수 구하기
     df['입사']=pd.to_datetime(df['입사'])
     df['입사'] =df['입사'].dt.year
     df['workYear']=2022 - df['입사']
     print(df.head(3))
+    
+    # train_set, test_set = train_test_split(jikwons, test_size = 0.2)
+    # print(train_set.shape, test_set.shape)
+    # print(train_set)
     
     x= df[['workYear']].values
     y= df['연봉'].values
@@ -50,11 +58,20 @@ def linreg(year):
     print(jg, type(jg))
     
     Rjson= {'payResult':payResult,'model_r2':model_r2*100,'year':year,'jg':jgdf.to_html()}
+    #return JsonResponse(Rjson)
     return Rjson
-    
+
 def insert(request):
     if request.method =="POST":
         # #print(request.POST.get('year'))
         year = request.POST.get('year')
         print(linreg(year))
         return render(request, 'result.html', linreg(year))
+
+@csrf_exempt
+def predict(request):
+    year = int(request.POST['year'])
+    # print(year,type(year))
+    Rjson=linreg(year)
+    print(Rjson)
+    return HttpResponse(json.dumps(Rjson), content_type = 'application/json')
